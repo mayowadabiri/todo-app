@@ -1,84 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
 
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./images/favicon-32x32.png"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&family=Lexend+Deca:wght@200;300;400&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- displays site properly based on user's device -->
 
-    <link rel="stylesheet" type="text/css" href="./index.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&family=Lexend+Deca:wght@200;300;400&display=swap"
+    rel="stylesheet" />
 
-    <title>Frontend Mentor | Todo app</title>
-  </head>
-  <body>
-    <div class="wrapper">
-      <div class="bg-img"></div>
-      <div class="inner_wrapper">
-        <div class="todo_header">
-          <h1>TODO</h1>
-          <p>
-            <span>Monday, January 2022</span>
-          </p>
-          <p>2:39pm</p>
-          <img src="./images/icon-sun.svg" alt="light mode" />
-        </div>
-        <form class="todo_form flex">
-          <!-- <input type="radio" name="mode" id="light" /> -->
-          <span class="circle"></span>
-          <input
-            type="text"
-            placeholder="Create your todo"
-            class="todo_input text-typo"
-          />
-        </form>
-        <div class="todo_container flex">
-          <div class="todo_items">
-            <div class="todo_item">
-              <input
-                checked
-                type="checkbox"
-                hidden
-                id="todo-1"
-                class="todo_checkbox"
-              />
-              <label class="circle todo_label" for="todo-1"> </label>
-              <span class="text-typo">Complete your registration</span>
-            </div>
-            <div class="todo_item">
-              <input type="checkbox" />
-              <span>Complete your registration</span>
-            </div>
-            <div class="todo_item">
-              <input type="checkbox" />
-              <span>Complete your registration</span>
-            </div>
-            <div class="todo_item">
-              <input type="checkbox" />
-              <span>Complete your registration</span>
-            </div>
-            <div class="todo_item">
-              <input type="checkbox" />
-              <span>Complete your registration</span>
-            </div>
-            <div class="todo_item">
-              <input type="checkbox" />
-              <span>Complete your registration</span>
+  <link rel="stylesheet" type="text/css" href="./index.css" />
+  <title>Frontend Mentor | Todo app</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="bg-img"></div>
+    <div class="inner_wrapper">
+      <div class="todo_header">
+        <h1>TODO</h1>
+        <p>
+          <span>Monday, January 2022</span>
+        </p>
+        <p>2:39pm</p>
+        <img src="./images/icon-sun.svg" alt="light mode" />
+      </div>
+      <form onsubmit="submitHandler(event)" class="todo_form flex">
+        <!-- <input type="radio" name="mode" id="light" /> -->
+        <span class="circle"></span>
+        <input type="text" placeholder="Create your todo" class="todo_input text-typo" value="" />
+      </form>
+      <div class="todo_container flex">
+        <div class="todo_items">
+          <!-- <div class="todo_item">
+            <input checked type="checkbox" hidden id="todo-1" class="todo_checkbox" />
+            <label class="circle todo_label" for="todo-1"> </label>
+            <span class="text-typo">Complete your registration</span>
+            <div class="todo_btns">
+              <button>Edit</button>
+              <button>Delete</button>
             </div>
           </div>
+           -->
+        </div>
+        <div class="todo_pages">
+          <button class="active">All</button>
+          <button>Active</button>
+          <button>Completed</button>
         </div>
       </div>
     </div>
-  </body>
+  </div>
+  <script type="text/javascript" src="./index.js"></script>
+</body>
+
 </html>
