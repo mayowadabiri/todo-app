@@ -152,9 +152,10 @@
 } */
 
 
-/* .todo_checkbox:checked~.todo_label {
+.todo_checkbox:checked~.todo_label {
     background-image: linear-gradient(to bottom right, #76b6fb 50%, #a27beb 40%);
-} */
+}
+
 
 .todo_pages {
     display: flex;
