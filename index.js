@@ -16,6 +16,16 @@ const editMode = {
   editTag: "",
 };
 
+const loadTodos = () => {
+  const todos = localStorage.getItem("todos");
+  const parsedTodo = JSON.parse(todos);
+  if (parsedTodo.length > 0) {
+    container.style.display = "block";
+    showItems(parsedTodo);
+    allTodos = parsedTodo;
+  }
+};
+
 const dateTime = () => {
   const day = new Date().toLocaleString("en-US", {
     weekday: "short",
@@ -52,13 +62,6 @@ const submitHandler = (evt) => {
         isCompleted: false,
       };
       allTodos.push(todoObject);
-      // console.log(allTodos);
-      // const activeTodos = allTodos.filter((item) => !item.isCompleted);
-      // console.log(activeTodos);
-      // if (currentActive.textContent === "Active") {
-      //   console.log("ACTICE");
-      //   showItems(activeTodos);
-      // } else
 
       "All" === "Active";
       // filtering
@@ -73,8 +76,6 @@ const submitHandler = (evt) => {
       // inputValue.value = "";
     } else {
       const id = editMode.id;
-      console.log(id);
-      console.log(allTodos);
       const updatedTodo = allTodos.find((item) => item.id === +id);
       console.log(updatedTodo);
       updatedTodo.todo = formValue;
@@ -85,7 +86,7 @@ const submitHandler = (evt) => {
     }
     inputValue.value = "";
   }
-  console.log(allTodos);
+  localStorage.setItem("todos", JSON.stringify(allTodos));
 };
 
 const showItems = (todos) => {
@@ -150,6 +151,7 @@ const toggleCompleted = (todoCompleted, boolean, id, style) => {
   });
   allTodos = updatedTodos;
   console.log(allTodos);
+  localStorage.setItem("todos", JSON.stringify(allTodos));
   todoCompleted.style.textDecoration = style;
 };
 
@@ -173,6 +175,7 @@ const deleteTodo = (evt) => {
   const id = div.dataset.id;
   const updatedTodos = allTodos.filter((item) => item.id !== +id);
   allTodos = updatedTodos;
+  localStorage.setItem("todos", JSON.stringify(allTodos));
   console.log(allTodos);
   console.log(updatedTodos);
   if (allTodos.length === 0) {
@@ -226,3 +229,12 @@ const compeletedTodos = (evt) => {
   showItems(completed);
   showCompleted(completed);
 };
+
+loadTodos();
+
+// sessionStorage.setItem("myName", "JavaScript");
+
+// console.log(sessionStorage.getItem("myName"));
+
+// Local Storage
+// Session Storage
